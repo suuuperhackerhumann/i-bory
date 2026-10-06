@@ -1,0 +1,17 @@
+/* Bouton WhatsApp flottant */
+.wa-float{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;height:56px;min-width:56px;border-radius:999px;background:var(--gold);color:var(--deep);text-decoration:none;font-weight:700;box-shadow:0 10px 28px -8px rgba(57,32,79,.55);animation:waIn .7s var(--ease) 1.6s both;transition:transform .25s var(--ease)}
+.wa-float:hover{transform:translateY(-3px)}.wa-float:active{transform:scale(.95)}
+.wa-float i{font-size:1.75rem;width:56px;text-align:center}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:999px;border:2px solid var(--gold);pointer-events:none;animation:waPulse 2.8s ease-out 3s infinite}
+.wa-t{max-width:0;overflow:hidden;white-space:nowrap;padding-left:0;transition:max-width .4s var(--ease),padding .4s var(--ease)}
+.wa-float:hover .wa-t,.wa-float:focus-visible .wa-t{max-width:15rem;padding-left:1.2rem}
+@keyframes waIn{from{opacity:0;transform:translateY(20px) scale(.8)}}
+@keyframes waPulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
+@media(max-width:760px){.ft{padding-bottom:5.5rem}}
+@media(prefers-reduced-motion:reduce){.wa-float,.wa-float::before{animation:none}}
+/* Page 404 */
+.nf{text-align:center;min-height:68vh;display:grid;align-items:center}
+.nf .big{font:600 clamp(5rem,22vw,11rem)/1 'Fraunces',serif;color:var(--gold)}
+.nf .cta{justify-content:center}.nf p.lead{margin-inline:auto}
+@media(prefers-reduced-motion:reduce){.js .rv,.js .rv[data-rv]{opacity:1;transform:none}}
+@media(max-width:899px){.svc li p{grid-column:2}}

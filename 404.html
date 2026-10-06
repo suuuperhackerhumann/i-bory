@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page introuvable | i-bory</title><base href="/"><meta name="robots" content="noindex"><meta name="description" content="i-bory : solutions informatiques sur mesure, desktop, mobile, web et IA. Abidjan, Côte d'Ivoire.">
+<meta name="theme-color" content="#39204F"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="extras.css">
+<style>
+.chan{display:grid;gap:.8rem}
+@media(min-width:520px){.chan{grid-template-columns:1fr 1fr}}
+.chan .btn{justify-content:center}
+.btn-outline{border-color:var(--violet);color:var(--violet);background:transparent}
+.btn-outline:hover{background:var(--pearl)}
+.btn i.fa-whatsapp{font-size:1.2rem}
+.hint{min-height:1.4rem;font-size:.9rem;text-align:center;opacity:.85}
+.form-intro{font-size:.95rem;opacity:.85}
+</style></head><body>
+<header class="hd"><div class="wrap"><a class="brand" href="index.html"><img src="apple-touch-icon.png" alt="" width="40" height="40">i-bory</a>
+<button class="burger" aria-label="Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button><nav class="nav"><a href="index.html">Accueil</a><a href="equipe.html">Équipe</a><a href="contact.html" >Contact</a></nav></div></header>
+<main><section class="hero nf" data-fx="dark"><canvas class="fx" aria-hidden="true"></canvas><div class="wrap" style="grid-template-columns:1fr"><div>
+<p class="big in">404</p><h1 class="in" style="font-size:clamp(1.8rem,5vw,2.8rem)">Cette page court plus vite que nous.</h1>
+<p class="lead in">Le lien est peut-être erroné, ou la page a changé d'adresse. Reprenons depuis le début.</p>
+<div class="cta in"><a class="btn btn-gold" href="index.html"><i class="fa-solid fa-house"></i> Retour à l'accueil</a><a class="btn btn-line" href="contact.html">Nous contacter</a></div></div></div></section></main>
+<footer class="ft"><div class="wrap"><a class="brand" href="index.html"><img src="apple-touch-icon.png" alt="" width="40" height="40">i-bory</a><span style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center"><a href="http://ibory-motion.infinityfreeapp.com/" target="_blank" rel="noopener">Présentation <i class="fa-solid fa-arrow-up-right-from-square"></i></a><span>© 2026 i-bory (ibory). Abidjan, Côte d'Ivoire.</span></span></div></footer>
+<a class="wa-float" href="https://wa.me/2250788736040?text=Bonjour%20i-bory%2C%20j%27aimerais%20discuter%20d%27un%20projet." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp"><span class="wa-t">Discuter sur WhatsApp</span><i class="fa-brands fa-whatsapp"></i></a>
+<script src="js/main.js"></script>
+<script>
+(()=>{
+/* Réglages : numéro WhatsApp (format international sans +) et adresse de réception */
+const WA='2250788736040',MAILS='Iboryci@gmail.com';
+const f=document.getElementById('contact-form'),hint=f.querySelector('.hint');
+const compose=()=>{const d=Object.fromEntries(new FormData(f));
+return{subject:`Demande via le site i-bory : ${d.sujet}`,body:`Bonjour i-bory,\n\nJe m'appelle ${d.nom.trim()} (${d.email.trim()}).\nSujet : ${d.sujet}\n\n${d.message.trim()}`}};
+const valid=()=>{f.querySelectorAll('input,select,textarea').forEach(el=>el.dispatchEvent(new Event('blur')));
+const bad=f.querySelector('.f.bad input,.f.bad select,.f.bad textarea');if(bad){bad.focus();hint.textContent='';return false}return true};
+f.querySelectorAll('[data-channel]').forEach(b=>b.addEventListener('click',()=>{
+if(!valid())return;const m=compose();
+if(b.dataset.channel==='wa'){window.open(`https://wa.me/${WA}?text=${encodeURIComponent(m.body)}`,'_blank','noopener');hint.textContent="WhatsApp s'ouvre avec votre message prêt : appuyez sur Envoyer."}
+else{location.href=`mailto:${MAILS}?subject=${encodeURIComponent(m.subject)}&body=${encodeURIComponent(m.body)}`;hint.textContent="Votre application de messagerie s'ouvre avec le message prêt."}}));
+})();
+</script></body></html>
